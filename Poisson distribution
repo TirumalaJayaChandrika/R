@@ -1,0 +1,23 @@
+x<-0:8
+#f<-c(103,143,98,42,8,4,2,0,0)
+print("enter frequency")
+f<-scan()
+sumf<-sum(f)
+fx<-f*x
+sumfx<-sum(fx)
+n<-length(x)-1
+p<-sumfx/sumf
+
+fe<- pr*sumf
+fec<-round(fe,digits=0)
+pr<-dpois(x,p)
+pr<-round(pr,digits=5)
+mydata<-data.frame(x,f,fx,pr,fe,fec)
+sums<-list(NA,sumf,sumfx,NA,NA,sum(fec))
+mydata<-rbind(mydata,sums)
+print(mydata,row.names = FALSE)
+result<-chisq.test(f,p=pr,rescale.p=TRUE)
+print(result)
+table<-qchisq(0.95,df=8)
+cat("table value:",table)
+
