@@ -1,0 +1,26 @@
+print("enter x data")
+x<-scan()
+print("enter y data")
+y<-scan()
+#x<-c(59,	68,	44,	71,	63,	46,	69,	54,	48)
+#y<-c(50,	36,	62,	52,	70,	41)
+print("enter level of significance")
+a<-scan()
+n1<-length(x)
+n2<-length(y)
+xb<-sum(x)/n1
+yb<-sum(y)/n2
+s<-sum((x-xb)^2)+sum((y-yb)^2)
+sd<-sqrt(s/(n1+n2-2))
+tcal<-(xb-yb)/(sd*sqrt(1/n1+1/n2))
+cat("calculated t value",tcal)
+tv<-t.test(x,y)
+print(tv)
+tt<-qt(1-a/2,df=n1+n2-2)
+tt<-round(tt,digits=3)
+cat("table vlue for tailed test",tt)
+if(tcal>tt){
+  cat("\n","reject ho: both means are not equal")
+}else{
+  cat("\n","accept h0:both means are requal")
+}
