@@ -1,0 +1,19 @@
+x<-c(45,	73,	46,	124,	33,	57,	83,	34,	26,	17)
+y<-c(36,	60,	44,	119,	35,	51,	77,	29,	24,	11)
+print("enter the level of significance")
+a<-scan()
+d<-x-y
+n<-length(d)
+db<-mean(d)
+sd<-sqrt(sum((d-db)^2)/(n-1))
+cat("mean value",round(db,digits=3))
+cat("sd value",round(sd,digits=3))
+tcal<-t.test(x,y,paired=TRUE,alterntive="greater")
+print(tcal)
+tt<-qt(1-a, df=n-1)
+cat("table value is",round(tt,digits=3))
+if(tcal>tt){
+  cat("reject")
+}else{
+  cat("accept")
+}
