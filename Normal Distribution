@@ -1,0 +1,31 @@
+print("enter lower class interval")
+x<-scan()
+print("higher class interval")
+y<-scan()
+print("enter frequency")
+f<-scan()
+xi<-(x+y)/2
+fx<-f*xi
+fxx<-f*xi*xi
+sumfx<-sum(fx)
+sumfxx<-sum(fxx)
+m<-sumfx/sumf
+sd<-sumfxx/sumf-m*m
+sd<-sqrt(sd)
+z2<-pnorm(y,m,sd)
+z1<-pnorm(x,m,sd)
+pr<-z2-z1
+fe<-p*sumf
+z1<-round(z1,digits=5)
+z2<-round(z2,digits=5)
+p<-round(p,digits=5)
+fec<-round(fe,digits=0)
+mydata<-data.frame(xi,f,fx,fxx,x,y,z1,z2,pr,fe,fec)
+
+l<-list(NA,sumf,sumfx,sumfxx,NA,NA,NA,NA,NA,NA,sum(fec))
+mydata<-rbind(mydata,l)
+print(mydata,row.names=FALSE)
+q<-chisq.test(f,p=pr,rescale.p=TRUE)
+print(q)
+tv<-qchisq(0.95,df=4)
+cat("table value",tv)
