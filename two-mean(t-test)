@@ -24,3 +24,20 @@ if(tcal>tt){
 }else{
   cat("\n","accept h0:both means are requal")
 }
+"enter the level of significance"
+1: 0.05
+2: 
+Read 1 item
+mean value 5.2sd value 4.077
+	Paired t-test
+
+data:  x and y
+t = 4.0333, df = 9, p-value = 0.002958
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 2.283464 8.116536
+sample estimates:
+mean of the differences 
+                    5.2 
+
+table value is 1.833
