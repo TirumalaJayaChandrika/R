@@ -1,0 +1,10 @@
+r<-1:5
+n<-c("jaua","ka","jdb","sjbs","sjdbsj")
+g<-c("f","f","m","m","f")
+av<-c(34,78,90,34,67)
+a<-data.frame(r,n,g,av)
+write.csv(a,"bar.csv")
+x=read.csv("bar.csv")
+plot(x$r,x$av,xlab="names",col="blue",las=2)
+polygon(c(1,x$r,5),c(0,x$av,0),col="blue")
+View(x)

@@ -1,0 +1,15 @@
+x<-c(9,11,13,11,15,9,12,14)
+y<-c(10,12,10,14,9,8,10)
+n1<-length(x)
+n2<-length(y)
+m<-0.01
+f<-var.test(x,y)
+print(f)
+s1<-sd(x)
+s2<-sd(y)
+if(s1>s2){
+  ft<-qf(1-m,n1-1,n2-1)
+}else{
+  ft<-qf(1-m,n2-1,n1-1)
+}
+print(ft)

@@ -1,0 +1,16 @@
+x<-0:4
+f<-c(419,352,154,56,19)
+l<-length(x)-1
+sumf<-sum(f)
+fx<-f*x
+sumfx<-sum(fx)
+m<-sumfx/sumf
+pr<-dpois(x,lambda=m)
+fe<-sumf*pr
+fec<-round(fe,digits=0)
+a<-data.frame(x,f,fx,pr,fe,fec)
+data<-c(NA,sumf,sumfx,NA,NA,sum(fec))
+a<-rbind(a,data)
+print(a)
+c<-chisq.test(f,p=pr,rescale.p=T)
+print(c)
